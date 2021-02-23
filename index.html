@@ -1,0 +1,136 @@
+<!DOCTYPE hmtl>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Jeu JS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    </head>
+    <body>
+        <main class="grid-container">
+        <header class="grid-title">
+            <h1 id="title">The Great Fight</h1>
+        </header>
+<!-- MAIN GAME -->
+        <!-- PLAYER 1 -->
+                <article class="player1" id="player1">
+                    <section class="grid-player" id="separation1">
+                        <section class="player-panel panel-layout">
+                            <i class="fas fa-user player-visual"></i>
+                            <section class="player-progress">
+                                <section class="progress">
+                                    <p class="progress-value"></p>
+                                </section>
+                            </section>
+                            <p class="player-name" id="player1-name">name</p>
+                            <p class="player-item" id="player1-item">item</p>
+                        </section>
+                        <section class="gamespace" id="player1-character">
+                        </section>
+                        <section class="game-button">
+                            <button class="button button1" type="button">HIT</button>
+                            <button class="button button2" type="button">HEAL</button>
+                            <button class="button button3" type="button">YIELD</button>
+                        </section>
+                    </section>
+                </article>
+        
+        <!-- PLAYER 2 -->
+                <article class="player2" id="player2">
+                        <section class="grid-player" id="separation2">
+                            <section class="player-panel panel-layout">
+                                <i class="far fa-user player-visual"></i>
+                                <section class="player-progress">
+                                    <section class="progress">
+                                        <p class="progress-value"></p>
+                                    </section>
+                                </section>
+                                <p class="player-name" id="player2-name">name</p>
+                                <p class="player-item" id="player2-item">item</p>
+                            </section>
+                        <section class="gamespace" id="player2-character">
+                        </section>
+                        <section class="game-button">
+                            <button class="button button1" type="button">HIT</button>
+                            <button class="button button2" type="button">HEAL</button>
+                            <button class="button button3" type="button">YIELD</button>
+                        </section>
+                    </section>
+                </article>
+                
+                <article id="button-log">
+                    <section class="game-log">
+                        <button class="dropbtn">
+                            Game log
+                            <i class="fas fa-sort-up"></i>
+                        </button>
+                            <section class="dropup-content">
+                                <p>Test Player 1 hit player 2</p>
+                            </section>
+                    </section>
+                </article>
+               
+                <article class="player1 character" id="character1">
+                    <section class="create-character">
+                        <h2>Player 1 : Create your character</h2>
+                        <p>Your name :</p>
+                        <textarea id="name-player1"></textarea>
+                        <p>Choose your character's race :</p>
+                        <select id="race-player1" required>
+                                <option value="">--</option>
+                                <option value="Human">Human</option>
+                                <option value="Orc">Orc</option>
+                                <option value="Elf">Elf</option>
+                                <option value="Vampire">Vampire</option>
+                        </select>
+                        <p>Choose your item :</p>
+                        <select id="item-player1" required>
+                                <option value="">--</option>
+                                <option value="Boots">Boots</option>
+                                <option value="Staff">Staff</option>
+                                <option value="Sword">Sword</option>
+                                <option value="Bow">Bow</option>
+                        </select>
+                    </section>
+                </article>
+
+
+                <article class="player2 character" id="character2">
+                    <section class="create-character">
+                        <h2>Player 2 : Create your character</h2>
+                        <p>Your name :</p>
+                        <textarea id="name-player2"></textarea>
+                        <p>Choose your character's race :</p>
+                        <select id="race-player2" required>
+                                <option value="">--</option>
+                                <option value="Human">Human</option>
+                                <option value="Orc">Orc</option>
+                                <option value="Elf">Elf</option>
+                                <option value="Vampire">Vampire</option>
+                        </select>
+                        <p>Choose your item :</p>
+                        <select id="item-player2" required>
+                                <option value="">--</option>
+                                <option value="Boots">Boots</option>
+                                <option value="Staff">Staff</option>
+                                <option value="Sword">Sword</option>
+                                <option value="Bow">Bow</option>
+                        </select>
+                    </section>
+                </article>
+
+                <article id="button-create">
+                        <button id="button-character">
+                           Create
+                        </button>
+                </article>
+
+                <!-- <a href='https://www.freepik.com/vectors/green'>Green vector created by brgfx - www.freepik.com</a> 
+                <a href='https://www.freepik.com/vectors/animals'>Animals vector created by pch.vector - www.freepik.com</a>
+                -->
+
+        </main>
+        <script src="character.js"></script>
+    </body>
+</html>
