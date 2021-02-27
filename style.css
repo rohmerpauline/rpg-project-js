@@ -53,7 +53,7 @@ main {
 }
 
 #button-log {
-    grid-area: 3/ 1/ 4 / 3;
+    grid-area: 3 / 1 / 4 / 3;
     margin-top: 20px;
     text-align: center;
     justify-items: center;
@@ -149,7 +149,6 @@ main {
     border-radius: 2px;
     background: #f433ad;
     height: 7px;
-    width: 100%;
 }
 
 /* ******** BUTTONS STYLE - HIT, HEAL, YIELD ******** */

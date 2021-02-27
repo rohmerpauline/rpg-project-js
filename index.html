@@ -20,7 +20,7 @@
                             <i class="fas fa-user player-visual"></i>
                             <section class="player-progress">
                                 <section class="progress">
-                                    <p class="progress-value"></p>
+                                    <p class="progress-value" id="health-player1"></p>
                                 </section>
                             </section>
                             <p class="player-name" id="player1-name">name</p>
@@ -29,9 +29,9 @@
                         <section class="gamespace" id="player1-character">
                         </section>
                         <section class="game-button">
-                            <button class="button button1" type="button">HIT</button>
-                            <button class="button button2" type="button">HEAL</button>
-                            <button class="button button3" type="button">YIELD</button>
+                            <button class="button button1" id="hit-player1" type="button">HIT</button>
+                            <button class="button button2" id="heal-player1" type="button">HEAL</button>
+                            <button class="button button3" type="button" id="yield-player1">YIELD</button>
                         </section>
                     </section>
                 </article>
@@ -43,7 +43,7 @@
                                 <i class="far fa-user player-visual"></i>
                                 <section class="player-progress">
                                     <section class="progress">
-                                        <p class="progress-value"></p>
+                                        <p class="progress-value" id="health-player2"></p>
                                     </section>
                                 </section>
                                 <p class="player-name" id="player2-name">name</p>
@@ -52,9 +52,9 @@
                         <section class="gamespace" id="player2-character">
                         </section>
                         <section class="game-button">
-                            <button class="button button1" type="button">HIT</button>
-                            <button class="button button2" type="button">HEAL</button>
-                            <button class="button button3" type="button">YIELD</button>
+                            <button class="button button1" id="hit-player2" type="button">HIT</button>
+                            <button class="button button2" id="heal-player2" type="button">HEAL</button>
+                            <button class="button button3" type="button" id="yield-player2">YIELD</button>
                         </section>
                     </section>
                 </article>
@@ -65,12 +65,13 @@
                             Game log
                             <i class="fas fa-sort-up"></i>
                         </button>
-                            <section class="dropup-content">
+                            <section class="dropup-content" id="gamelog-text">
                                 <p>Test Player 1 hit player 2</p>
                             </section>
                     </section>
                 </article>
-               
+
+        <!--CREATE CHARACTERS-->
                 <article class="player1 character" id="character1">
                     <section class="create-character">
                         <h2>Player 1 : Create your character</h2>
@@ -132,5 +133,6 @@
 
         </main>
         <script src="character.js"></script>
+        <script src="gamelogic.js"></script>
     </body>
 </html>
