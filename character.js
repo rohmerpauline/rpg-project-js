@@ -16,30 +16,43 @@ function Person(name, race,item){
     this.maxDamage = 20;
     this.maxHealing = 30;
 
-    this.click = false;
+    this.clicked = function(hitBtnPlayerClicking, healBtnPlayerClicking, yieldBtnPlayerClicking, playerClickingBtn, hitBtnPlayerNotClicking, healBtnPlayerNotClicking, yieldBtnPlayerNotClicking, playerNotClickingBtn) {
+        hitBtnPlayerClicking.disabled = true;
+        healBtnPlayerClicking.disabled = true;
+        yieldBtnPlayerClicking.disabled = true;
+        playerClickingBtn.style.opacity = "50%";
+        hitBtnPlayerNotClicking.disabled = false;
+        healBtnPlayerNotClicking.disabled = false;
+        yieldBtnPlayerNotClicking.disabled = false;
+        playerNotClickingBtn.style.opacity = "100%";
+    }
 
     this.heal = function(){
         this.currenthealth = this.currenthealth + healPlayer;
-        if (this.currenthealth > this.maxHealth) {
+        if (this.currenthealth >= this.maxHealth) {
             this.currenthealth = this.maxHealth;
+        }
+        if (this.currenthealth == this.maxHealth) {
+            gameLog.innerHTML += `${this.name} doesn't need healing ! </br>`
+        } else if (this.currenthealth < this.maxHealth) {
+            gameLog.innerHTML += `${this.name} healed for ${healPlayer}. HP ${this.currenthealth} / ${this.maxHealth} </br>`
         }
     };
 
     this.damage = function (){
         this.currenthealth = this.currenthealth - playerAttack;
-        if (this.currenthealth < 0) {
+        if (this.currenthealth <= 0) {
             this.currenthealth = 0;
+            document.getElementById("player1").style.display = "none";
+            document.getElementById("player2").style.display = "none";
+            document.getElementById("button-log").style.display = "none";
+            document.getElementById("button-refresh").style.display = "block";
+            document.getElementById("message-endgame").innerHTML += `${this.name} won the game. Congratulations !`
+            document.getElementById("message-endgame").style.display = "block";
         }
     }; 
 
     this.totalDamage = this.damage();
-
-    this.clicked = function(playerClicking, playerNotClicking) {
-        playerClicking.click = true;
-        playerNotClicking.click = false;
-        console.log(playerClicking.name + playerClicking.click);
-        console.log(playerNotClicking.name + playerNotClicking.click);
-    }
 
     // health is impacted by damagePlayer once before games starts, so to fix it :
     this.currenthealth = this.maxHealth;
@@ -48,6 +61,7 @@ function Person(name, race,item){
         return console.log(`I am a ${this.race}, I wield a ${this.item}, my total health point are ${this.maxHealth}`);
     };
 
+    // Items of Players
     this.itemOfPlayer = function (playerClicking, playerNotClicking) {
         healPlayer = Math.floor(Math.random()*(this.maxHealing))+ this.min;
         playerAttack = Math.floor(Math.random()*(this.maxDamage))+ this.min;
@@ -72,6 +86,8 @@ function Person(name, race,item){
         }
     };
 
+
+    // Races of Players
     if (this.race =="Orc") {
         this.maxHealth *= 1.4;
         this.currenthealth = this.maxHealth;
@@ -82,8 +98,11 @@ function Person(name, race,item){
             playerAttack *= 0.8;
             console.log(playerAttack);
         } else if (playerNotClicking.race == "Elf") {
-            playerNotClicking.currenthealth += playerAttack;
-            playerClicking.currenthealth -= (playerAttack*0.5);
+            let randomElf = Math.floor(Math.random()*(100))+ 1; 
+            if (randomElf <= 30) {
+                playerNotClicking.currenthealth += playerAttack;
+                playerClicking.currenthealth -= (playerAttack*0.5);
+            }
         } else if (playerClicking.race == "Vampire") {
             playerClicking.currenthealth += (playerNotClicking.currenthealth*0.1);
             playerNotClicking.currenthealth -= (playerNotClicking.currenthealth*0.1);
@@ -93,13 +112,16 @@ function Person(name, race,item){
             } 
         };
 
-    };
+};
 
 /* ************************** GET INFO ************************** */
 
+// To hide main game panel and engame panel at the beginning of the game
 document.getElementById("player1").style.display = "none";
 document.getElementById("player2").style.display = "none";
 document.getElementById("button-log").style.display = "none";
+document.getElementById("button-refresh").style.display = "none";
+
 let Player1;
 let Player2;
 
@@ -125,7 +147,6 @@ document.getElementById("button-character").addEventListener("click", () => {
         racePlayer2,
         itemPlayer2,
         )
-
 
 // To show the Player 1 character in the game
 let img = document.createElement("img");
@@ -169,38 +190,34 @@ let img = document.createElement("img");
         break;
     };
 
+// To add the Players info in the game
 document.getElementById("player1-name").innerHTML = namePlayer1;
 document.getElementById("player2-name").innerHTML = namePlayer2;
 document.getElementById("player1-item").innerHTML = itemPlayer1;
 document.getElementById("player2-item").innerHTML = itemPlayer2;
 
+// To hide the Create the characters Panel
 document.getElementById("character1").style.display = "none";
 document.getElementById("character2").style.display = "none";
 document.getElementById("button-create").style.display = "none";
 
+// To show the main game panels
 document.getElementById("player1").style.display = "block";
 document.getElementById("player2").style.display = "block";
 document.getElementById("button-log").style.display = "block";
 
+// To initialiaze the players health 
 document.getElementById("health-player1").style.width = Player1.maxHealth + "%";
 document.getElementById("health-player2").style.width = Player2.maxHealth + "%";
 
+// To randomize who starts the game
 let playerPlayFirst = Math.floor(Math.random()*2)+1;
 if (playerPlayFirst == 1) {
-    document.getElementById("hit-player2").disabled = true;
-    document.getElementById("heal-player2").disabled = true;
-    document.getElementById("yield-player2").disabled = true;
-    document.getElementById("hit-player2").style.opacity = "50%";
-    document.getElementById("heal-player2").style.opacity = "50%";
-    document.getElementById("yield-player2").style.opacity = "50%";
+    document.getElementById("button-player1").disabled = true;
+    document.getElementById("button-player1").style.opacity = "50%";
 } else if (playerPlayFirst == 2) {
-    document.getElementById("hit-player1").disabled = true;
-    document.getElementById("heal-player1").disabled = true;
-    document.getElementById("yield-player1").disabled = true;
-    document.getElementById("hit-player1").style.opacity = "50%";
-    document.getElementById("heal-player1").style.opacity = "50%";
-    document.getElementById("yield-player1").style.opacity = "50%"; 
+    document.getElementById("button-player2").disabled = true;
+    document.getElementById("button-player2").style.opacity = "50%";
 }
 
 });
-

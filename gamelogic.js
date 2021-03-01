@@ -6,20 +6,26 @@ let healButtonPlayer2 = document.getElementById("heal-player2");
 let yieldButtonPlayer1 = document.getElementById("yield-player1");
 let yieldButtonPlayer2 = document.getElementById("yield-player2");
 
+let gameLog = document.getElementById("gamelog-text");
+
+let healthPlayer1 = document.getElementById("health-player1");
+let healthPlayer2 = document.getElementById("health-player2");
+
+let player1Btn = document.getElementById("button-player1");
+let player2Btn = document.getElementById("button-player2");
 
 // HIT BUTTON PLAYER 1
 
 hitButtonPlayer1.addEventListener("click", () => {
     Player1.itemOfPlayer(Player1, Player2);
     Player1.raceOfPlayer(Player1, Player2);
-    Player2.damage();
-    Player1.clicked(Player1, Player2);
-    document.getElementById("health-player2").style.width = Player2.currenthealth + "%";
-    document.getElementById("health-player1").style.width = Player1.currenthealth + "%";
-    console.log(document.getElementById("health-player1").style.width);
-    console.log(document.getElementById("health-player2").style.width);
-    document.getElementById("hit-player2").disabled = false;
-    
+    Player2.damage(Player1);
+    Player1.clicked(hitButtonPlayer1, healButtonPlayer1, yieldButtonPlayer1, player1Btn, hitButtonPlayer2, healButtonPlayer2, yieldButtonPlayer2, player2Btn);
+    healthPlayer2.style.width = Player2.currenthealth + "%";
+    healthPlayer1.style.width = Player1.currenthealth + "%";
+    console.log(healthPlayer1.style.width);
+    console.log(healthPlayer2.style.width);
+    gameLog.innerHTML += `${Player1.name} hit for ${playerAttack}. HP ${Player1.currenthealth} / ${Player1.maxHealth}</br>`
 }); 
 
 // HIT BUTTON PLAYER 2
@@ -27,12 +33,13 @@ hitButtonPlayer1.addEventListener("click", () => {
 hitButtonPlayer2.addEventListener("click", () => {
     Player2.itemOfPlayer(Player2, Player1);
     Player2.raceOfPlayer(Player2, Player1);
-    Player1.damage();
-    Player2.clicked(Player2, Player1);
-    document.getElementById("health-player1").style.width = Player1.currenthealth + "%";
-    document.getElementById("health-player2").style.width = Player2.currenthealth + "%";
-    console.log(document.getElementById("health-player1").style.width);
-    console.log(document.getElementById("health-player2").style.width);
+    Player1.damage(Player2);
+    Player2.clicked(hitButtonPlayer2, healButtonPlayer2, yieldButtonPlayer2, player2Btn, hitButtonPlayer1, healButtonPlayer1, yieldButtonPlayer1, player1Btn);
+    healthPlayer1.style.width = Player1.currenthealth + "%";
+    healthPlayer2.style.width = Player2.currenthealth + "%";
+    console.log(healthPlayer1.style.width);
+    console.log(healthPlayer2.style.width);
+    gameLog.innerHTML += `${Player2.name} hit for ${playerAttack}. HP ${Player2.currenthealth} / ${Player2.maxHealth} </br>`
 }); 
 
 // HEAL BUTTON PLAYER 1
@@ -41,10 +48,10 @@ healButtonPlayer1.addEventListener("click", () => {
     Player1.itemOfPlayer(Player1, Player2);
     Player1.raceOfPlayer(Player1, Player2);
     Player1.heal();
-    Player1.clicked(Player1, Player2);
-    document.getElementById("health-player1").style.width = Player1.currenthealth + "%";
-    console.log(document.getElementById("health-player1").style.width);
-    console.log(document.getElementById("health-player2").style.width);
+    Player1.clicked(hitButtonPlayer1, healButtonPlayer1, yieldButtonPlayer1, player1Btn, hitButtonPlayer2, healButtonPlayer2, yieldButtonPlayer2, player2Btn);
+    healthPlayer1.style.width = Player1.currenthealth + "%";
+    console.log(healthPlayer1.style.width);
+    console.log(healthPlayer2.style.width);
 }); 
 
 // HEAL BUTTON PLAYER 2
@@ -53,76 +60,10 @@ healButtonPlayer2.addEventListener("click", () => {
     Player2.itemOfPlayer(Player2, Player1);
     Player2.raceOfPlayer(Player2, Player1);
     Player2.heal();
-    Player2.clicked(Player2, Player1);
-    document.getElementById("health-player2").style.width = Player2.currenthealth + "%";
-    console.log(document.getElementById("health-player1").style.width);
-    console.log(document.getElementById("health-player2").style.width);
+    Player2.clicked(hitButtonPlayer2, healButtonPlayer2, yieldButtonPlayer2, player2Btn, hitButtonPlayer1, healButtonPlayer1, yieldButtonPlayer1, player1Btn);
+    healthPlayer2.style.width = Player2.currenthealth + "%";
+    console.log(healthPlayer1.style.width);
+    console.log(healthPlayer2.style.width);
 }); 
 
 
-// DISABLE BUTTON WHEN PLAYED
-
-/* function btnPlayer1() {
-    if (Player1.click == true) {
-        hitButtonPlayer1.disabled = true;
-        healButtonPlayer1.disabled = true;
-        yieldButtonPlayer1.disabled = true;
-        hitButtonPlayer1.style.opacity = "50%";
-        healButtonPlayer1.style.opacity = "50%";
-        yieldButtonPlayer1.style.opacity = "50%";
-    } else if (Player2.click == false) {
-        hitButtonPlayer2.disabled = false;
-        healButtonPlayer2.disabled = false;
-        yieldButtonPlayer2.disabled = false;
-        hitButtonPlayer2.style.opacity = "100%";
-        healButtonPlayer2.style.opacity = "100%";
-        yieldButtonPlayer2.style.opacity = "100%";
-    }
-}
-    
-function btnPlayer2() {
-    if (Player2.click == true) {
-        hitButtonPlayer2.disabled = true;
-        healButtonPlayer2.disabled = true;
-        yieldButtonPlayer2.disabled = true;
-        hitButtonPlayer2.style.opacity = "50%";
-        healButtonPlayer2.style.opacity = "50%";
-        yieldButtonPlayer2.style.opacity = "50%";
-    } else if (Player1.click == false) {
-        hitButtonPlayer1.disabled = false;
-        healButtonPlayer1.disabled = false;
-        yieldButtonPlayer1.disabled = false;
-        hitButtonPlayer1.style.opacity = "100%";
-        healButtonPlayer1.style.opacity = "100%";
-        yieldButtonPlayer1.style.opacity = "100%";
-    }
-} */
-/* if (Player1.click == true) {
-    hitButtonPlayer1.disabled = true;
-    healButtonPlayer1.disabled = true;
-    yieldButtonPlayer1.disabled = true;
-    hitButtonPlayer1.style.opacity = "50%";
-    healButtonPlayer1.style.opacity = "50%";
-    yieldButtonPlayer1.style.opacity = "50%";
-} else if (Player2.click == false) {
-    hitButtonPlayer2.disabled = false;
-    healButtonPlayer2.disabled = false;
-    yieldButtonPlayer2.disabled = false;
-    hitButtonPlayer2.style.opacity = "100%";
-    healButtonPlayer2.style.opacity = "100%";
-    yieldButtonPlayer2.style.opacity = "100%";
-} else if (Player2.click == true) {
-    hitButtonPlayer2.disabled = true;
-    healButtonPlayer2.disabled = true;
-    yieldButtonPlayer2.disabled = true;
-    hitButtonPlayer2.style.opacity = "50%";
-    healButtonPlayer2.style.opacity = "50%";
-    yieldButtonPlayer2.style.opacity = "50%";
-} else if (Player1.click == false) {
-    hitButtonPlayer1.disabled = false;
-    healButtonPlayer1.disabled = false;
-    yieldButtonPlayer1.disabled = false;
-    hitButtonPlayer1.style.opacity = "100%";
-    healButtonPlayer1.style.opacity = "100%";
-    yieldButtonPlayer1.style.opacity = "100%";
-} */

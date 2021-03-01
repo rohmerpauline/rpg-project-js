@@ -28,7 +28,7 @@
                         </section>
                         <section class="gamespace" id="player1-character">
                         </section>
-                        <section class="game-button">
+                        <section class="game-button" id="button-player1">
                             <button class="button button1" id="hit-player1" type="button">HIT</button>
                             <button class="button button2" id="heal-player1" type="button">HEAL</button>
                             <button class="button button3" type="button" id="yield-player1">YIELD</button>
@@ -51,7 +51,7 @@
                             </section>
                         <section class="gamespace" id="player2-character">
                         </section>
-                        <section class="game-button">
+                        <section class="game-button" id="button-player2">
                             <button class="button button1" id="hit-player2" type="button">HIT</button>
                             <button class="button button2" id="heal-player2" type="button">HEAL</button>
                             <button class="button button3" type="button" id="yield-player2">YIELD</button>
@@ -65,8 +65,8 @@
                             Game log
                             <i class="fas fa-sort-up"></i>
                         </button>
-                            <section class="dropup-content" id="gamelog-text">
-                                <p>Test Player 1 hit player 2</p>
+                            <section class="dropup-content">
+                                <p id="gamelog-text"></p>
                             </section>
                     </section>
                 </article>
@@ -95,7 +95,6 @@
                         </select>
                     </section>
                 </article>
-
 
                 <article class="player2 character" id="character2">
                     <section class="create-character">
@@ -126,6 +125,19 @@
                            Create
                         </button>
                 </article>
+
+        <!--MESSAGE WHEN GAME'S OVER AND REFRESH PAGE-->
+
+                <article id="endgame">
+                    <p id="message-endgame"></p>
+                </article>
+
+                <article id="button-refresh">
+                    <button onClick = "window.location.reload()" id="button-character">
+                    Restart
+                    </button>
+                </article>
+
 
                 <!-- <a href='https://www.freepik.com/vectors/green'>Green vector created by brgfx - www.freepik.com</a> 
                 <a href='https://www.freepik.com/vectors/animals'>Animals vector created by pch.vector - www.freepik.com</a>
