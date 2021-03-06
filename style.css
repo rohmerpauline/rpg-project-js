@@ -29,7 +29,7 @@ main {
 .grid-container {
     display: grid;
     width : 100%; 
-    height: 100vw;
+    height: 100%;
     grid-template-columns: 50% 50%;
     grid-template-rows: max-content auto auto auto;
 }
@@ -298,7 +298,6 @@ button:active {
     .grid-container {
         grid-template-rows: max-content auto auto;
         justify-content: space-between;
-        height: 100%;
     }
 
     .grid-title {
