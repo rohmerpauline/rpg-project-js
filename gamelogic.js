@@ -19,7 +19,8 @@ let player2Btn = document.getElementById("button-player2");
 hitButtonPlayer1.addEventListener("click", () => {
     Player1.itemOfPlayer(Player1, Player2);
     Player1.raceOfPlayer(Player1, Player2);
-    Player2.damage(Player1);
+    Player2.damage();
+    Player1.endgame(Player2);
     Player1.clicked(hitButtonPlayer1, healButtonPlayer1, yieldButtonPlayer1, player1Btn, hitButtonPlayer2, healButtonPlayer2, yieldButtonPlayer2, player2Btn);
     healthPlayer2.style.width = Player2.currenthealth + "%";
     healthPlayer1.style.width = Player1.currenthealth + "%";
@@ -33,7 +34,8 @@ hitButtonPlayer1.addEventListener("click", () => {
 hitButtonPlayer2.addEventListener("click", () => {
     Player2.itemOfPlayer(Player2, Player1);
     Player2.raceOfPlayer(Player2, Player1);
-    Player1.damage(Player2);
+    Player1.damage();
+    Player2.endgame(Player1);
     Player2.clicked(hitButtonPlayer2, healButtonPlayer2, yieldButtonPlayer2, player2Btn, hitButtonPlayer1, healButtonPlayer1, yieldButtonPlayer1, player1Btn);
     healthPlayer1.style.width = Player1.currenthealth + "%";
     healthPlayer2.style.width = Player2.currenthealth + "%";
@@ -66,4 +68,14 @@ healButtonPlayer2.addEventListener("click", () => {
     console.log(healthPlayer2.style.width);
 }); 
 
+// YIELD BUTTON PLAYER 1
 
+yieldButtonPlayer1.addEventListener("click", () => {
+    Player1.yield(Player2);
+}); 
+
+// YIELD BUTTON PLAYER 2
+
+yieldButtonPlayer2.addEventListener("click", () => {
+    Player2.yield(Player1);
+}); 

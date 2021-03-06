@@ -29,7 +29,7 @@ main {
 .grid-container {
     display: grid;
     width : 100%; 
-    height: 100%;
+    height: 100vw;
     grid-template-columns: 50% 50%;
     grid-template-rows: max-content auto auto auto;
 }
@@ -298,6 +298,7 @@ button:active {
     .grid-container {
         grid-template-rows: max-content auto auto;
         justify-content: space-between;
+        height: 100%;
     }
 
     .grid-title {
@@ -306,7 +307,7 @@ button:active {
 
     .player1 {
         grid-area : 2 / 1 / 3 / 2;
-        margin: 0 0 0 0;
+        margin: 0;
         width: auto;
     }
 
