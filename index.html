@@ -74,54 +74,56 @@
         <!--CREATE CHARACTERS-->
                 <article class="player1 character" id="character1">
                     <section class="create-character">
-                        <h2>Player 1 : Create your character</h2>
-                        <p>Your name :</p>
-                        <textarea id="name-player1"></textarea>
-                        <p>Choose your character's race :</p>
-                        <select id="race-player1" required>
-                                <option value="">--</option>
-                                <option value="Human">Human</option>
-                                <option value="Orc">Orc</option>
-                                <option value="Elf">Elf</option>
-                                <option value="Vampire">Vampire</option>
-                        </select>
-                        <p>Choose your item :</p>
-                        <select id="item-player1" required>
-                                <option value="">--</option>
+                        <h2 class="character-title">Player 1 : Create your character</h2>
+                        <textarea class="name-player" id="name-player1" placeholder="Your name"></textarea>
+                        <p>
+                            <select class="select-option" id="race-player1" required>
+                                 <option value="">Choose your character's race :</option>
+                                 <option value="Human">Human</option>
+                                 <option value="Orc">Orc</option>
+                                 <option value="Elf">Elf</option>
+                                 <option value="Vampire">Vampire</option>
+                         </select>
+                        </p>
+                        <p>
+                            <select class="select-option" id="item-player1" required>
+                                <option value="">Choose your item :</option>
                                 <option value="Boots">Boots</option>
                                 <option value="Staff">Staff</option>
                                 <option value="Sword">Sword</option>
                                 <option value="Bow">Bow</option>
                         </select>
+                        </p>
                     </section>
                 </article>
 
                 <article class="player2 character" id="character2">
                     <section class="create-character">
-                        <h2>Player 2 : Create your character</h2>
-                        <p>Your name :</p>
-                        <textarea id="name-player2"></textarea>
-                        <p>Choose your character's race :</p>
-                        <select id="race-player2" required>
-                                <option value="">--</option>
-                                <option value="Human">Human</option>
-                                <option value="Orc">Orc</option>
-                                <option value="Elf">Elf</option>
-                                <option value="Vampire">Vampire</option>
-                        </select>
-                        <p>Choose your item :</p>
-                        <select id="item-player2" required>
-                                <option value="">--</option>
+                        <h2 class="character-title">Player 2 : Create your character</h2>
+                        <textarea class="name-player" id="name-player2" placeholder="Your name"></textarea>
+                        <p>
+                            <select class="select-option" id="race-player2" required>
+                                 <option value="">Choose your character's race :</option>
+                                 <option value="Human">Human</option>
+                                 <option value="Orc">Orc</option>
+                                 <option value="Elf">Elf</option>
+                                 <option value="Vampire">Vampire</option>
+                         </select>
+                        </p>
+                        <p>
+                            <select class="select-option" id="item-player2" required>
+                                <option value="">Choose your item :</option>
                                 <option value="Boots">Boots</option>
                                 <option value="Staff">Staff</option>
                                 <option value="Sword">Sword</option>
                                 <option value="Bow">Bow</option>
                         </select>
+                        </p>
                     </section>
                 </article>
 
                 <article id="button-create">
-                        <button id="button-character">
+                        <button id="button-character" class="button-create-restart">
                            Create
                         </button>
                 </article>
@@ -133,8 +135,8 @@
                 </article>
 
                 <article id="button-refresh">
-                    <button onClick = "window.location.reload()" id="button-character">
-                    Restart
+                    <button onClick = "window.location.reload()" id="button-restart" class="button-create-restart">
+                    Restart <i class="fas fa-redo"></i>
                     </button>
                 </article>
 
