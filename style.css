@@ -64,7 +64,7 @@ main {
 /* ******** LAYOUT OF EACH PLAYER SIDE ******** */
 .grid-player {
     display : grid;
-    grid-template-rows: 20% 50% max-content;
+    grid-template-rows: 20% 50% 10%;
     height : 30%;
     text-align: center;
     align-content: space-between;
