@@ -127,6 +127,7 @@ main {
     border: none;
     border : 3px solid #f433ad;
     background-color: transparent;
+    text-align: center;
 }
 
 .button1 {
