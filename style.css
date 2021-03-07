@@ -124,7 +124,8 @@ main {
     font-size: 20px;
     width: 80px;
     color : #f433ad;
-    border: none;
+/*     border: none; */
+    border : 3px solid #f433ad;
     background-color: transparent;
     text-align: center;
     justify-content: center;
@@ -138,7 +139,6 @@ main {
 
 .button2 {
     border-radius : 5px;
-    border : 3px solid #f433ad;
 }
 
 .button3 {
