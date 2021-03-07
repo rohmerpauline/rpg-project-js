@@ -210,7 +210,6 @@ document.getElementById("button-character").addEventListener("click", () => {
             break;
             case "Vampire" :
                 img2.src = "images/vampire.png";
-                img2.style.height = "100%";
                 document.getElementById("player2-character").appendChild(img2);
             break;
         };
