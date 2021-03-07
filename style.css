@@ -129,7 +129,7 @@ main {
     background-color: transparent;
     text-align: center;
     justify-content: center;
-    padding: 0;
+    display : inline-block;
 }
 
 .button1 {
