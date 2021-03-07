@@ -139,6 +139,7 @@ main {
 .button {
     font-size: 20px;
     width: 80px;
+    text-align: center;
     color : #f433ad;
     border: none;
     border : 3px solid #f433ad;
