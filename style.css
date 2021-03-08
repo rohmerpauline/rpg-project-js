@@ -24,7 +24,7 @@ header {
 main {
     font-family: 'Titillium Web', sans-serif;
     justify-content: center;
-    max-height: 90%;
+    height: 90%;
 }
 
 /* ******** MAIN LAYOUT ******** */
@@ -206,7 +206,7 @@ button:active {
 .name-player {
     width: 100%;
     border-radius: 5px;
-    font-size : 16px;
+    font-size : 14px;
     color : black;
     font-family: 'Titillium Web', sans-serif;
     height: 25px;
@@ -214,7 +214,7 @@ button:active {
 
 .select-option {
     width: 100%;
-    font-size: 16px;
+    font-size : 14px;
     background-color: white;
     font-family: 'Titillium Web', sans-serif;
 }
