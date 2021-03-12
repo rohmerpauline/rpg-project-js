@@ -58,13 +58,13 @@ function Person(name, race,item){
         document.getElementById("player2").style.display = "none";
         document.getElementById("button-log").style.display = "none";
         document.getElementById("button-refresh").style.display = "block";
-        document.getElementById("message-endgame").innerHTML += `${playerNotClicking.name} won the game. Congratulations !`
+        document.getElementById("message-endgame").innerHTML += `${playerNotClicking.name} won the game. Congratulations ! <br> ${this.name} lost the game... `
         document.getElementById("message-endgame").style.display = "block";
     }
 
     this.endgame = function (playerNotClicking) {
         if (playerNotClicking.currenthealth <= 0) {
-            document.getElementById("message-endgame").innerHTML += `${this.name} won the game. Congratulations !`
+            document.getElementById("message-endgame").innerHTML += `${this.name} won the game. Congratulations ! <br> ${playerNotClicking.name} lost the game...`
             document.getElementById("message-endgame").style.display = "block";
         }
     };
